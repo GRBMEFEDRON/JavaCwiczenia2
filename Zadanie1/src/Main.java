@@ -55,5 +55,51 @@ public class Main {
         if (podatek < 0) podatek = 0;
 
         System.out.println("Należny podatek: " + podatek + " zł");
+
+        double cena;
+        int raty;
+
+        do {
+            System.out.print("Podaj cenę (100 - 10000): ");
+            cena = scanner.nextDouble();
+        } while (cena < 100 || cena > 10000);
+
+        do {
+            System.out.print("Podaj liczbę rat (6 - 48): ");
+            raty = scanner.nextInt();
+        } while (raty < 6 || raty > 48);
+
+        double procent = 0;
+        if (raty <= 12) procent = 0.025;
+        else if (raty <= 24) procent = 0.05;
+        else procent = 0.10;
+
+        double rata = (cena + cena * procent) / raty;
+        System.out.printf("Miesięczna rata: %.2f\n", rata);
+
+
+        System.out.println("Kalkulator");
+        System.out.print("Liczba 1: ");
+        double x = scanner.nextDouble();
+
+        System.out.print("Działanie (+ - * /): ");
+        char op = scanner.next().charAt(0);
+
+        System.out.print("Liczba 2: ");
+        double y = scanner.nextDouble();
+
+        switch (op) {
+            case '+': System.out.println("Wynik: " + (x + y)); break;
+            case '-': System.out.println("Wynik: " + (x - y)); break;
+            case '*': System.out.println("Wynik: " + (x * y)); break;
+            case '/':
+                if (y != 0) System.out.println("Wynik: " + (x / y));
+                else System.out.println("Nie dzielimy przez zero");
+                break;
+            default: System.out.println("Błąd działania");
+        }
+        scanner.nextLine();
+        scanner.nextLine();
+
     }
 }
