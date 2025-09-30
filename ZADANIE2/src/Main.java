@@ -91,4 +91,4 @@ public class Main {
         double avgN = cn > 0 ? (double)sn / cn : 1;
         System.out.println(avgP / avgN);
     }
-}dwa
+}
